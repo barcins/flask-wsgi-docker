@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+  flask:
+    build: ./uygulama
+    container_name: flask-web
+    restart: always
+    environment:
+      - APP_NAME=FlaskCrmUygulamasi
+    expose:
+      - 8080
+
+  nginx:
+    build: ./sunucu
+    container_name: nginx-web
+    restart: always
+    ports:
+      - "80:80"
